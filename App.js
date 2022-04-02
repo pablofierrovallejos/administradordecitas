@@ -1,4 +1,4 @@
-import React , {Fragment} from 'react';
+import React , {useState} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -9,8 +9,13 @@ import {
   Modal
 } from 'react-native';
 
+import Formulario from './src/components/Formulario';
 
 const App = () =>  {
+  const [modalVisible, setModalVisible] = useState(false)
+
+
+
   const presionarButton= ()=>{
       console.log('Pressable ok')
   }
@@ -26,16 +31,14 @@ const App = () =>  {
       > 
       </Button>
       <Pressable 
-        onPress={presionarButton}
+        onPress={()=> setModalVisible(true)}
         style={styles.btnNuevaCita}
       >
           <Text style={styles.btnTextNuevaCita}>Presione aquí</Text>
       </Pressable>
-      <Modal animationType='fade'
-             visible={false}
-      >
-        <Text>Desde Modal</Text>
-      </Modal>
+
+      <Formulario modalVisible={modalVisible}
+      />
     </SafeAreaView>
    
   );
