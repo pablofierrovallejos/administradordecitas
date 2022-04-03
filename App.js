@@ -14,11 +14,10 @@ import Formulario from './src/components/Formulario';
 const App = () =>  {
   const [modalVisible, setModalVisible] = useState(false)
 
-
-
   const presionarButton= ()=>{
       console.log('Pressable ok')
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.titulo}>Administrador de Citas {' '}
@@ -33,11 +32,13 @@ const App = () =>  {
       <Pressable 
         onPress={()=> setModalVisible(true)}
         style={styles.btnNuevaCita}
-      >
-          <Text style={styles.btnTextNuevaCita}>Presione aquí</Text>
+        >
+        <Text style={styles.btnTextNuevaCita}>Presione aquí</Text>
       </Pressable>
 
-      <Formulario modalVisible={modalVisible}
+      <Formulario 
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
       />
     </SafeAreaView>
    
